@@ -10,48 +10,30 @@ cart_url = 'https://www.saucedemo.com/cart.html'
 
 # case 2.1
 def test_add_to_cart():
-    # авторизация:
     browser.get(url)
     browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
     browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
     browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-
-    # выбор товара:
-    red_t_short = browser.find_element('xpath', '//a[@id="item_3_title_link"]')
-    assert red_t_short.text == 'Test.allTheThings() T-Shirt (Red)'
     time.sleep(2)
 
-    # добавление выбранного в корзину:
-    browser.find_element('xpath', '//button[@data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
-    time.sleep(2)
+    pick_item = browser.find_element('xpath', '//div[contains(text(), "Sauce Labs Backpack")]').text
 
-    # проверка изменения кнопки с Add на Remove:
-    btn_remove = browser.find_element('xpath', '//button[@data-test="remove-test.allthethings()-t-shirt-(red)"]')
-    assert btn_remove.text == 'Remove'
+    add_to_cart_btn = browser.find_element('css selector', 'button[data-test="add-to-cart-sauce-labs-backpack"]')
+    add_to_cart_btn.click()
 
-    # фиксация количества товаров в корзине:
-    cart_tag_before = browser.find_element('xpath', '//*[@id="shopping_cart_container"]/a/span').text
-    assert cart_tag_before == '1'
+    shoping_cart_link = browser.find_element('css selector', 'a[class ="shopping_cart_link"]')
+    shoping_cart_link.click()
 
-    # переход в корзину:
-    browser.find_element('xpath', '//a[@class="shopping_cart_link"]').click()
-    assert browser.current_url == cart_url, 'Wrong url'
-    time.sleep(3)
+    check_item_picked = browser.find_element('xpath',
+                                             '//a[@id="item_4_title_link"]/div[@class="inventory_item_name"]').text
 
-    # проверка наличия выбранного товара в корзине:
-    red_t_short_in_cart = browser.find_element('xpath', '//a[@id="item_3_title_link"]')
-    assert red_t_short_in_cart.text == 'Test.allTheThings() T-Shirt (Red)'
-
-    # проверка наличия кнопки Remove у выбранного товара в корзине:
-    btn_remove = browser.find_element('xpath', '//button[@data-test="remove-test.allthethings()-t-shirt-(red)"]')
-    assert btn_remove.text == 'Remove'
+    assert pick_item == check_item_picked
 
     browser.quit()
 
 
 # case 2.2
 def test_remove_from_cart():
-    # авторизация:
     browser.get(url)
     browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
     browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')

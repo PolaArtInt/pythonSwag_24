@@ -1,7 +1,6 @@
 ## Авторизация: test_auth.py
 case 1.1
 test_standart_login
-Авторизация стандартного пользователя:
 1.Открыть url: https://www.saucedemo.com/
 2.Ввести 'standard_user' в 'Username'
 3.Ввести 'secret_sauce' в 'Password'
