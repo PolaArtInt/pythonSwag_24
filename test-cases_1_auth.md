@@ -1,4 +1,4 @@
-## Авторизация: test_auth.py  
+## Авторизация: test_1_auth.py  
 case 1.1  
 test_standart_login  
 1.Открыть url: https://www.saucedemo.com/  
