@@ -16,7 +16,7 @@ def test_standart_login():
     browser.find_element('xpath', '//input[@data-test="login-button"]').click()
 
     time.sleep(2)
-    assert browser.current_url == inventory_url
+    assert browser.current_url == inventory_url, 'Wrong url'
 
 
 # case 1.2
@@ -29,7 +29,7 @@ def test_auth_positive_locked_out_user():
 
     err_msg1 = browser.find_element('xpath', '//*[@id="login_button_container"]//h3')
     assert err_msg1.text == 'Epic sadface: Sorry, this user has been locked out.'
-    assert browser.current_url == url
+    assert browser.current_url == url, 'Wrong url'
     time.sleep(2)
 
 
@@ -71,5 +71,5 @@ def test_auth_negative_wrong_login():
 
     err_msg2 = browser.find_element('xpath', '//*[@id="login_button_container"]//h3')
     assert err_msg2.text == 'Epic sadface: Username and password do not match any user in this service'
-    assert browser.current_url == url
+    assert browser.current_url == url, 'Wrong url'
     time.sleep(2)
