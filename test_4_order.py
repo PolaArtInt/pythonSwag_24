@@ -4,6 +4,7 @@ from selenium import webdriver
 browser = webdriver.Chrome()
 
 url = 'https://www.saucedemo.com/'
+success_url = 'https://www.saucedemo.com/checkout-complete.html'
 
 
 # case 4.1
@@ -44,6 +45,5 @@ def test_positive_order():
     curr_url = browser.current_url
     success_msg = browser.find_element('xpath', '//h2[@data-test="complete-header"]').text
 
-    assert curr_url == 'https://www.saucedemo.com/checkout-complete.html'
-    assert success_msg == 'Thank you for your order!'
+    assert curr_url == success_url and success_msg == 'Thank you for your order!', 'Wrong url'
     time.sleep(2)
