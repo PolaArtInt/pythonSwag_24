@@ -1,5 +1,6 @@
 ## Корзина: test_2_cart.py  
 case 2.1  
+test_add_to_cart  
 Авторизация:  
 1.Открыть url: https://www.saucedemo.com/  
 2.Ввести 'standard_user' в 'Username'  
@@ -13,6 +14,7 @@ case 2.1
 9.Убрать товар из корзины  
   
 case 2.2  
+test_remove_from_cart  
 Авторизация:  
 1.Открыть url: https://www.saucedemo.com/  
 2.Ввести 'standard_user' в 'Username'  
@@ -26,6 +28,7 @@ case 2.2
 9.Проверить, что товар удалён  
   
 case 2.3  
+test_add_item_from_item_card  
 Авторизация:  
 1.Открыть url: https://www.saucedemo.com/  
 2.Ввести 'standard_user' в 'Username'  
@@ -40,6 +43,7 @@ case 2.3
 10.Убрать товар из корзины  
   
 case 2.4  
+test_remove_item_from_item_card  
 Авторизация:  
 1.Открыть url: https://www.saucedemo.com/  
 2.Ввести 'standard_user' в 'Username'  
