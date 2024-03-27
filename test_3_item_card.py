@@ -25,9 +25,8 @@ def test_click_on_item_img():
     time.sleep(2)
 
     # check if url changed and we can get the same item:
-    assert browser.current_url != url
     item_card_desc1 = browser.find_element('xpath', '//div[@data-test="inventory-item-desc"]').text
-    assert item_desc1 == item_card_desc1
+    assert browser.current_url != url and item_desc1 == item_card_desc1, 'Different item description or wrong url'
     time.sleep(2)
 
 
@@ -49,7 +48,6 @@ def test_click_on_item_title():
     time.sleep(2)
 
     # check if url changed and we can get the same item:
-    assert browser.current_url != url
     item_card_desc1 = browser.find_element('xpath', '//div[@data-test="inventory-item-desc"]').text
-    assert item_desc1 == item_card_desc1
+    assert item_desc1 == item_card_desc1 and browser.current_url != url, 'Different item description or wrong url'
     time.sleep(2)
