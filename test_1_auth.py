@@ -14,7 +14,6 @@ def test_standart_login():
     browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
     browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
     browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-
     time.sleep(2)
     assert browser.current_url == inventory_url, 'Wrong url'
 

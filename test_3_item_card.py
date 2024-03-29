@@ -1,4 +1,5 @@
-from auth import *
+from browser_init import *
+from auth import standard_auth
 
 
 # case 3.1
@@ -13,7 +14,7 @@ def test_click_on_item_img(standard_auth):
 
     # check if url changed and we can get the same item:
     item_card_desc1 = browser.find_element('xpath', '//div[@data-test="inventory-item-desc"]').text
-    assert browser.current_url != url and item_desc1 == item_card_desc1, 'Different item description or wrong url'
+    assert browser.current_url != inventory_url and item_desc1 == item_card_desc1, 'Different item description or wrong url'
     time.sleep(2)
 
 

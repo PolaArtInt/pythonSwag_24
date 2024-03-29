@@ -1,4 +1,5 @@
-from auth import *
+from browser_init import *
+from auth import standard_auth
 
 
 # case 2.1
@@ -108,3 +109,5 @@ def test_remove_item_from_item_card(standard_auth):
     # check the button changed:
     btn_txt4 = browser.find_element('xpath', '//button[@id="add-to-cart"]').text
     assert btn_txt4 == 'Add to cart', 'Button didn\'t change'
+
+

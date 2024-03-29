@@ -12,6 +12,7 @@ def test_problem_user_negatiev_inventory_imgs():
     browser.get(url)
     time.sleep(2)
 
+    # problem_user auth:
     browser.find_element('xpath', '//input[@id="user-name"]').send_keys('problem_user')
     browser.find_element('xpath', '//input[@id="password"]').send_keys('secret_sauce')
     browser.find_element('xpath', '//input[@id="login-button"]').click()

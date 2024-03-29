@@ -1,17 +1,7 @@
-from selenium import webdriver
-import pytest
-import time
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
-inventory_url = 'https://www.saucedemo.com/inventory.html'
-success_url = 'https://www.saucedemo.com/checkout-complete.html'
-cart_url = 'https://www.saucedemo.com/cart.html'
-about_url = 'https://saucelabs.com/'
+from browser_init import *
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture()
 def standard_auth():
     browser.get(url)
     browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')

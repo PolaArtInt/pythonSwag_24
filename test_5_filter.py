@@ -1,4 +1,5 @@
-from auth import *
+from browser_init import *
+from auth import standard_auth
 
 
 # case 5.1
