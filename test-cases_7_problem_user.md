@@ -1,6 +1,8 @@
-## Повторяющиеся картинки в инвентаре problem_user: test_7_problem_user.py  
+## Повторяющиеся картинки в инвентаре problem_user:
+test_7_problem_user.py  
+  
 case 7.1  
-test_positive_logout  
+test_problem_user_negative_inventory_imgs  
 Авторизация problem_user:  
 1.Открыть url: https://www.saucedemo.com/  
 2.Ввести 'problem_user' в 'Username'  

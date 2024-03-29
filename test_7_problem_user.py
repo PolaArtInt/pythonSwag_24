@@ -8,7 +8,7 @@ inventory_url = 'https://www.saucedemo.com/inventory.html'
 
 
 # case 7.1 DEFECT FOUND
-def test_problem_user_negatiev_inventory_imgs():
+def test_problem_user_negative_inventory_imgs():
     browser.get(url)
     time.sleep(2)
 
