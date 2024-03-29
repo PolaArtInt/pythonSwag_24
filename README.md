@@ -46,3 +46,7 @@ test_6_menu.py
 3.Проверка работоспособности кнопки "Reset App State": case 6.3  
 4.Негативная проверка кнопки: case 6.4 DEFECT FOUND  
   
+## Повторяющиеся картинки в инвентаре problem_user:  
+test_7_problem_user.py  
+1.Негативная проверка картинок в инвентаре: case 7.1 DEFECT FOUND  
+  
