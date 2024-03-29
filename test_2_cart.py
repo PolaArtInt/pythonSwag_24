@@ -1,22 +1,8 @@
-import time
-from selenium import webdriver
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
-inventory_url = 'https://www.saucedemo.com/inventory.html'
-cart_url = 'https://www.saucedemo.com/cart.html'
+from auth import *
 
 
 # case 2.1
-def test_add_to_cart():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_add_to_cart(standard_auth):
     # pick item text:
     pick_item1 = browser.find_element('xpath', '//div[contains(text(), "Sauce Labs Backpack")]').text
 
@@ -28,7 +14,7 @@ def test_add_to_cart():
 
     # check if item picked is the same item in cart:
     check_item_picked1 = browser.find_element('xpath',
-                                             '//a[@id="item_4_title_link"]/div[@class="inventory_item_name"]').text
+                                              '//a[@id="item_4_title_link"]/div[@class="inventory_item_name"]').text
 
     assert pick_item1 == check_item_picked1, 'Different item picked'
 
@@ -37,14 +23,7 @@ def test_add_to_cart():
 
 
 # case 2.2
-def test_remove_from_cart():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_remove_from_cart(standard_auth):
     # pick two items and add it to cart:
     browser.find_element('xpath', '//button[@data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click()
     browser.find_element('xpath', '//button[@data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click()
@@ -77,14 +56,7 @@ def test_remove_from_cart():
 
 
 # case 2.3
-def test_add_item_from_item_card():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_add_item_from_item_card(standard_auth):
     # pick item title:
     item_title3 = browser.find_element('xpath', '(//div[@data-test="inventory-item-name"])[1]').text
 
@@ -112,14 +84,7 @@ def test_add_item_from_item_card():
 
 
 # case 2.4
-def test_remove_item_from_item_card():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_remove_item_from_item_card(standard_auth):
     # pick item text:
     item_title4 = browser.find_element('xpath', '//div[contains(text(), "Sauce Labs Backpack")]').text
 
