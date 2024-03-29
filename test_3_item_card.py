@@ -1,21 +1,8 @@
-import time
-from selenium import webdriver
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
-inventory_url = 'https://www.saucedemo.com/inventory.html'
+from auth import *
 
 
 # case 3.1
-def test_click_on_item_img():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_click_on_item_img(standard_auth):
     # pick item description:
     item_desc1 = browser.find_element('xpath', '(//div[@class="inventory_item_desc"])[2]').text
     time.sleep(2)
@@ -31,14 +18,7 @@ def test_click_on_item_img():
 
 
 # case 3.2
-def test_click_on_item_title():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_click_on_item_title(standard_auth):
     # pick item description:
     item_desc1 = browser.find_element('xpath', '(//div[@class="inventory_item_desc"])[3]').text
     time.sleep(2)

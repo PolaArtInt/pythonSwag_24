@@ -1,21 +1,8 @@
-import time
-from selenium import webdriver
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
-success_url = 'https://www.saucedemo.com/checkout-complete.html'
+from auth import *
 
 
 # case 4.1
-def test_positive_order():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_positive_order(standard_auth):
     # pick item and add it to cart:
     browser.find_element('xpath', '//button[@id="add-to-cart-sauce-labs-fleece-jacket"]').click()
     time.sleep(2)

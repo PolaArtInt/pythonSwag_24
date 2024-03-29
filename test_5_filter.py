@@ -1,20 +1,8 @@
-import time
-from selenium import webdriver
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
+from auth import *
 
 
 # case 5.1
-def test_a_to_z_filter():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_a_to_z_filter(standard_auth):
     # sort items a-z before clicking on a-z filter:
     items_before1 = browser.find_elements('xpath', '//div[@data-test="inventory-item-name"]')
     before1 = []
@@ -38,14 +26,7 @@ def test_a_to_z_filter():
 
 
 # case 5.2
-def test_z_to_a_filter():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_z_to_a_filter(standard_auth):
     # sort items z-a before clicking on a-z filter:
     items_before2 = browser.find_elements('xpath', '//div[@data-test="inventory-item-name"]')
     before2 = []
@@ -69,14 +50,7 @@ def test_z_to_a_filter():
 
 
 # case 5.3
-def test_high_to_low_filter():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_high_to_low_filter(standard_auth):
     # sort items low-high before clicking on low-high filter:
     prices_before3 = browser.find_elements('xpath', '//div[@class="inventory_item_price"]')
     before3 = []
@@ -100,14 +74,7 @@ def test_high_to_low_filter():
 
 
 # case 5.4
-def test_low_to_high_filter():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_low_to_high_filter(standard_auth):
     # sort items low-high before clicking on low-high filter:
     prices_before4 = browser.find_elements('xpath', '//div[@class="inventory_item_price"]')
     before4 = []

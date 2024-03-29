@@ -1,21 +1,8 @@
-import time
-from selenium import webdriver
-
-browser = webdriver.Chrome()
-
-url = 'https://www.saucedemo.com/'
-about_url = 'https://saucelabs.com/'
+from auth import *
 
 
 # case 6.1
-def test_positive_logout():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_positive_logout(standard_auth):
     # find and click burger menu:
     browser.find_element('id', 'react-burger-menu-btn').click()
     time.sleep(3)
@@ -28,14 +15,7 @@ def test_positive_logout():
 
 
 # case 6.2
-def test_positive_about_btn():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_positive_about_btn(standard_auth):
     # find and click burger menu:
     browser.find_element('id', 'react-burger-menu-btn').click()
     time.sleep(3)
@@ -50,14 +30,7 @@ def test_positive_about_btn():
 
 
 # case 6.3
-def test_reset_app_state_positive():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_reset_app_state_positive(standard_auth):
     # add two items to cart:
     browser.find_element('xpath', '//button[@name="add-to-cart-sauce-labs-backpack"]').click()
     browser.find_element('xpath', '//button[@name="add-to-cart-sauce-labs-bolt-t-shirt"]').click()
@@ -77,14 +50,7 @@ def test_reset_app_state_positive():
 
 
 # case 6.4  DEFECT FOUND
-def test_reset_app_state_negative():
-    # standard auth:
-    browser.get(url)
-    browser.find_element('xpath', '//input[@data-test="username"]').send_keys('standard_user')
-    browser.find_element('xpath', '//input[@data-test="password"]').send_keys('secret_sauce')
-    browser.find_element('xpath', '//input[@data-test="login-button"]').click()
-    time.sleep(2)
-
+def test_reset_app_state_negative(standard_auth):
     # check 'add to cart' buttons quantity before:
     add_btns_before = browser.find_elements('xpath', '//button[@class="btn btn_primary btn_small btn_inventory "]')
     print(len(add_btns_before))
