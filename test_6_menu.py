@@ -70,7 +70,7 @@ def test_reset_app_state_negative(standard_auth):
 
     # check if cart is empty:
     cart_tag3 = browser.find_element('css selector', '#shopping_cart_container>a:empty')
-    assert bool(cart_tag3) == True, 'Shopping cart is not empty'
+    assert bool(cart_tag3), 'Shopping cart is not empty'
     time.sleep(5)
 
     # check all 'add to cart' buttons are unpressed by its quantity before and after:
